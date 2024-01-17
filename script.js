@@ -20,21 +20,28 @@ document.addEventListener('click', (e) => {
 const calculer = (valeur) => {
   if(listKeyCode.includes(valeur)){
     switch(valeur){
-      case '8':
+      case '67':
         ecran.textContent = '';
         break;
       case '13':
         const calcul = eval(ecran.textContent);
         ecran.textContent = calcul;
         break;
+        case '8':
+          if (ecran.textContent.length > 0) {
+            ecran.textContent = ecran.textContent.slice(0, -1);
+          }
       default:
         const indexKeycode = listKeyCode.indexOf(valeur)
         const touche = touches[indexKeycode];
-        ecran.textContent += touche.innerHTML
+
+        if(valeur !== '8') {
+          ecran.textContent += touche.innerHTML
+        }
     }
   }
 }
 window.addEventListener('error', (e) => {
-  alert('Une erreur est survenue dans votre calcul')
+  alert('Une erreur est survenue dans votre calcul :' + e.message)
   ecran.textContent = '';
 })
