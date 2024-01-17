@@ -31,6 +31,7 @@ const calculer = (valeur) => {
           if (ecran.textContent.length > 0) {
             ecran.textContent = ecran.textContent.slice(0, -1);
           }
+          break;
       default:
         const indexKeycode = listKeyCode.indexOf(valeur)
         const touche = touches[indexKeycode];
